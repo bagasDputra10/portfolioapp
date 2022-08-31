@@ -144,64 +144,6 @@ class DashboardGrid extends StatelessWidget {
   }
 }
 
-/// grid item dashboard
-// class dashboardList extends StatelessWidget {
-//   const dashboardList({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: const EdgeInsets.only(top: 290.0),
-//       child: GridView.builder(
-//         shrinkWrap: true,
-//         itemBuilder: (context, index) {
-//           final DashboardList place = DashboardItemList[index];
-//           return InkWell(
-//             onTap: () {
-//               Navigator.push(context, MaterialPageRoute(builder: (context) {
-//                 return DetailScreen(place: place);
-//               }));
-//             },
-//             child: Card(
-//               elevation: 5,
-//               shape: RoundedRectangleBorder(
-//                   borderRadius: BorderRadius.circular(10)),
-//               child: Column(
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 children: <Widget>[
-//                   Container(
-//                       height: 120,
-//                       decoration: BoxDecoration(
-//                         borderRadius: BorderRadius.all(Radius.circular(10)),
-//                         image: DecorationImage(
-//                             fit: BoxFit.cover,
-//                             image: AssetImage(place.imageAsset)),
-//                       )),
-//                   Padding(
-//                     padding: const EdgeInsets.all(10),
-//                     child: Container(
-//                       margin: EdgeInsets.all(10),
-//                       child: Text(
-//                         place.item,
-//                         style: GoogleFonts.poppins(
-//                           fontSize: 20,
-//                         ),
-//                         textAlign: TextAlign.center,
-//                       ),
-//                     ),
-//                   )
-//                 ],
-//               ),
-//             ),
-//           );
-//         },
-//         itemCount: DashboardItemList.length,
-//         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//             crossAxisCount: 2, childAspectRatio: 2 / 3),
-//       ),
-//     );
-//   }
-// }
 /// Custom Shape Clipper
 class Rounded1 extends CustomClipper<Path> {
   @override
