@@ -168,17 +168,7 @@ class _RoundedShapeState extends State<RoundedShape> {
                 ),
               ),
               height: 250,
-              decoration: BoxDecoration(color: color
-                  // gradient: LinearGradient(
-                  //   begin: Alignment.topCenter,
-                  //   end: Alignment.bottomCenter,
-                  //   colors: [
-                  //     Colors.black,
-                  //     HexColor("#1FC4DA"),
-                  //     HexColor("#82EFEA"),
-                  //   ],
-                  // ),
-                  ),
+              decoration: BoxDecoration(color: color),
             ),
           ),
         ),
@@ -188,36 +178,69 @@ class _RoundedShapeState extends State<RoundedShape> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                RaisedButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  color: HexColor("#1FC4DA"),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: HexColor("#1FC4DA"),
+                  ),
                   onPressed: () {
                     setState(() {
                       color = HexColor("#1FC4DA");
                     });
                   },
+                  child: Text('1'),
                 ),
-                RaisedButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  color: HexColor("#82EFEA"),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: HexColor("#82EFEA"),
+                  ),
                   onPressed: () {
                     setState(() {
                       color = HexColor("#82EFEA");
                     });
                   },
+                  child: Text('2'),
                 ),
-                RaisedButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  color: Colors.blue,
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
+                  ),
                   onPressed: () {
                     setState(() {
                       color = Colors.blue;
                     });
                   },
+                  child: Text('3'),
                 ),
+                // RaisedButton(
+                //   shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(10)),
+                //   color: HexColor("#1FC4DA"),
+                //   onPressed: () {
+                //     setState(() {
+                //       color = HexColor("#1FC4DA");
+                //     });
+                //   },
+                // ),
+                // RaisedButton(
+                //   shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(10)),
+                //   color: HexColor("#82EFEA"),
+                //   onPressed: () {
+                //     setState(() {
+                //       color = HexColor("#82EFEA");
+                //     });
+                //   },
+                // ),
+                // RaisedButton(
+                //   shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(10)),
+                //   color: Colors.blue,
+                //   onPressed: () {
+                //     setState(() {
+                //       color = Colors.blue;
+                //     });
+                //   },
+                // ),
               ],
             ),
           ),
