@@ -6,12 +6,9 @@ import 'dashboardscreen.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class SplashScreen extends StatefulWidget {
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({Key? key}) : super(key: key);
 
-class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;

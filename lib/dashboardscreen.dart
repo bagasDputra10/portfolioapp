@@ -13,47 +13,8 @@ class DashboardScreen extends StatelessWidget {
         backgroundColor: HexColor("#E9EBED"),
         body: Stack(
           children: <Widget>[
-            SafeArea(
-              child: ClipPath(
-                clipper: Rounded1(),
-                child: Container(
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: AvatarGlow(
-                      glowColor: HexColor('#006092'),
-                      endRadius: 90.0,
-                      duration: Duration(milliseconds: 1000),
-                      repeat: true,
-                      showTwoGlows: true,
-                      repeatPauseDuration: Duration(milliseconds: 25),
-                      child: Material(
-                        elevation: 8.0,
-                        shape: CircleBorder(),
-                        child: CircleAvatar(
-                          radius: 50,
-                          backgroundColor: Colors.white,
-                          child: CircleAvatar(
-                            backgroundImage: AssetImage('images/IP1.jpg'),
-                            radius: 45.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  height: 300,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        HexColor("#1FC4DA"),
-                        HexColor("#82EFEA"),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            RoundedShape(),
+            // Title Dashboard //
             Container(
                 margin: EdgeInsets.fromLTRB(70, 265, 0, 0),
                 child: Text("DASHBOARD MENU",
@@ -61,16 +22,19 @@ class DashboardScreen extends StatelessWidget {
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2))),
-            LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
-                if (constraints.maxWidth <= 600) {
-                  return const DashboardGrid(gridCount: 2);
-                } else if (constraints.maxWidth <= 1200) {
-                  return const DashboardGrid(gridCount: 4);
-                } else {
-                  return const DashboardGrid(gridCount: 6);
-                }
-              },
+            // Grid View
+            Expanded(
+              child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+                  if (constraints.maxWidth <= 600) {
+                    return const DashboardGrid(gridCount: 2);
+                  } else if (constraints.maxWidth <= 1200) {
+                    return const DashboardGrid(gridCount: 4);
+                  } else {
+                    return const DashboardGrid(gridCount: 6);
+                  }
+                },
+              ),
             ),
           ],
         ),
@@ -161,4 +125,104 @@ class Rounded1 extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
+}
+
+class RoundedShape extends StatefulWidget {
+  const RoundedShape({Key? key}) : super(key: key);
+
+  @override
+  State<RoundedShape> createState() => _RoundedShapeState();
+}
+
+class _RoundedShapeState extends State<RoundedShape> {
+  Color color = Colors.yellow;
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        SafeArea(
+          child: ClipPath(
+            clipper: Rounded1(),
+            child: Container(
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: AvatarGlow(
+                  glowColor: HexColor('#006092'),
+                  endRadius: 90.0,
+                  duration: Duration(milliseconds: 1000),
+                  repeat: true,
+                  showTwoGlows: true,
+                  repeatPauseDuration: Duration(milliseconds: 25),
+                  child: Material(
+                    elevation: 8.0,
+                    shape: CircleBorder(),
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Colors.white,
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage('images/IP1.jpg'),
+                        radius: 45.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              height: 250,
+              decoration: BoxDecoration(color: color
+                  // gradient: LinearGradient(
+                  //   begin: Alignment.topCenter,
+                  //   end: Alignment.bottomCenter,
+                  //   colors: [
+                  //     Colors.black,
+                  //     HexColor("#1FC4DA"),
+                  //     HexColor("#82EFEA"),
+                  //   ],
+                  // ),
+                  ),
+            ),
+          ),
+        ),
+        SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 190.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                RaisedButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  color: HexColor("#1FC4DA"),
+                  onPressed: () {
+                    setState(() {
+                      color = HexColor("#1FC4DA");
+                    });
+                  },
+                ),
+                RaisedButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  color: HexColor("#82EFEA"),
+                  onPressed: () {
+                    setState(() {
+                      color = HexColor("#82EFEA");
+                    });
+                  },
+                ),
+                RaisedButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  color: Colors.blue,
+                  onPressed: () {
+                    setState(() {
+                      color = Colors.blue;
+                    });
+                  },
+                ),
+              ],
+            ),
+          ),
+        )
+      ],
+    );
+  }
 }
