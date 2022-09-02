@@ -69,32 +69,38 @@ class DashboardGrid extends StatelessWidget {
                 elevation: 2,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Container(
-                        height: 120,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage(place.imageAsset)),
-                        )),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 10),
-                      child: Container(
-                        margin: EdgeInsets.only(top: 30),
-                        child: Text(
-                          place.item,
-                          style: GoogleFonts.poppins(
-                            fontSize: 20,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
+                child: Expanded(
+                  flex: 2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Flexible(
+                        child: Container(
+                            height: 120,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(place.imageAsset)),
+                            )),
                       ),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 10),
+                        child: Container(
+                          margin: EdgeInsets.only(top: 30),
+                          child: Text(
+                            place.item,
+                            style: GoogleFonts.poppins(
+                              fontSize: 20,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -172,6 +178,7 @@ class _RoundedShapeState extends State<RoundedShape> {
             ),
           ),
         ),
+        // Button Change Color
         SafeArea(
           child: Padding(
             padding: const EdgeInsets.only(top: 190.0),
@@ -211,36 +218,6 @@ class _RoundedShapeState extends State<RoundedShape> {
                   },
                   child: Text('3'),
                 ),
-                // RaisedButton(
-                //   shape: RoundedRectangleBorder(
-                //       borderRadius: BorderRadius.circular(10)),
-                //   color: HexColor("#1FC4DA"),
-                //   onPressed: () {
-                //     setState(() {
-                //       color = HexColor("#1FC4DA");
-                //     });
-                //   },
-                // ),
-                // RaisedButton(
-                //   shape: RoundedRectangleBorder(
-                //       borderRadius: BorderRadius.circular(10)),
-                //   color: HexColor("#82EFEA"),
-                //   onPressed: () {
-                //     setState(() {
-                //       color = HexColor("#82EFEA");
-                //     });
-                //   },
-                // ),
-                // RaisedButton(
-                //   shape: RoundedRectangleBorder(
-                //       borderRadius: BorderRadius.circular(10)),
-                //   color: Colors.blue,
-                //   onPressed: () {
-                //     setState(() {
-                //       color = Colors.blue;
-                //     });
-                //   },
-                // ),
               ],
             ),
           ),
